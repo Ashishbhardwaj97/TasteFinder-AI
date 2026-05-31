@@ -1,0 +1,925 @@
+/* ==========================================================================
+   TasteFinder Premium CSS Styling System
+   ========================================================================== */
+
+:root {
+  --brand-red: hsl(351, 84%, 44%);
+  --brand-red-hover: hsl(351, 84%, 37%);
+  --brand-red-light: hsl(351, 100%, 97.5%);
+  --brand-red-border: hsl(351, 60%, 93%);
+  
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  
+  --bg-page: #f8f9fc;
+  --bg-card: #ffffff;
+  --bg-input: #f1f5f9;
+  --bg-input-hover: #e2e8f0;
+  
+  --border-light: rgba(226, 232, 240, 0.8);
+  --border-focus: hsl(351, 84%, 80%);
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 20px rgba(148, 163, 184, 0.12), 0 2px 8px rgba(148, 163, 184, 0.08);
+  --shadow-lg: 0 10px 30px rgba(148, 163, 184, 0.18), 0 4px 12px rgba(148, 163, 184, 0.1);
+  
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 9999px;
+  
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Base Elements Reset --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Brand Colors & Scrollbars --- */
+::selection {
+  background-color: var(--brand-red-light);
+  color: var(--brand-red);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* --- Page Layout --- */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* --- Header --- */
+.global-header {
+  width: 100%;
+  max-width: 1200px;
+  padding: 24px 32px 0 32px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo-text-top {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-red);
+  cursor: pointer;
+  letter-spacing: -0.5px;
+}
+
+.hero-section {
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.hero-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -1px;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.hero-subtitle em {
+  font-style: italic;
+  color: var(--brand-red);
+  font-weight: 600;
+}
+
+/* --- Form Dashboard Container --- */
+.form-dashboard-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 800px;
+  padding: 36px;
+  margin-bottom: 48px;
+  transition: transform var(--transition-normal);
+}
+
+.form-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 24px;
+}
+
+/* --- Form Inputs Components --- */
+.input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.label-icon {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.badge-red-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-red);
+}
+
+/* Location Selector Dropdown */
+.custom-select-wrapper {
+  position: relative;
+}
+
+.form-select-control {
+  appearance: none;
+  width: 100%;
+  padding: 12px 40px 12px 14px;
+  background-color: var(--bg-input);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.form-select-control:hover {
+  background-color: var(--bg-input-hover);
+}
+
+.form-select-control:focus {
+  background-color: #ffffff;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(198, 28, 56, 0.1);
+}
+
+.select-chevron-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  font-size: 12px;
+}
+
+/* Segmented Budget Controls */
+.segmented-budget-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: var(--bg-input);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.budget-tab-pill {
+  border: none;
+  background: none;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.budget-tab-pill:hover:not(.active) {
+  color: var(--text-primary);
+}
+
+.budget-tab-pill.active {
+  background-color: var(--brand-red);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Multi-Cuisine Chip System */
+.cuisine-input-group {
+  background-color: var(--bg-input);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background-color var(--transition-fast);
+}
+
+.cuisine-input-group:focus-within {
+  background-color: #ffffff;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(198, 28, 56, 0.1);
+}
+
+.chips-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cuisine-chip-pill {
+  background-color: var(--brand-red);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  animation: scaleIn var(--transition-fast);
+}
+
+.cuisine-chip-pill button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  padding: 1px;
+}
+
+.cuisine-chip-pill button:hover {
+  color: #ffffff;
+}
+
+.cuisine-search-input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-primary);
+  width: 100%;
+  padding: 4px 6px;
+}
+
+.cuisine-search-input::placeholder {
+  color: var(--text-light);
+}
+
+/* Suggestions Dropdown list */
+.suggestions-list-box {
+  position: absolute;
+  z-index: 100;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 4px;
+  list-style: none;
+}
+
+.suggestion-item-row {
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.suggestion-item-row:hover {
+  background-color: var(--brand-red-light);
+  color: var(--brand-red);
+}
+
+/* Rating Range Slider */
+.slider-range-control {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: #e2e8f0;
+  outline: none;
+  margin: 12px 0 6px 0;
+}
+
+.slider-range-control::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--brand-red);
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(198, 28, 56, 0.15);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.slider-range-control::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 6px rgba(198, 28, 56, 0.25);
+}
+
+.slider-ticks-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.slider-ticks-row span {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+/* Custom Text Input for Preferences */
+.text-preferences-control {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: var(--bg-input);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  font-family: inherit;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.text-preferences-control:hover {
+  background-color: var(--bg-input-hover);
+}
+
+.text-preferences-control:focus {
+  background-color: #ffffff;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(198, 28, 56, 0.1);
+}
+
+.text-preferences-control::placeholder {
+  color: var(--text-light);
+}
+
+/* Results Spinner Limit Input */
+.numeric-spinner-row {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-input);
+  border-radius: var(--radius-sm);
+  width: 140px;
+  padding: 3px;
+  justify-content: space-between;
+}
+
+.spinner-btn-pill {
+  border: none;
+  background: none;
+  color: var(--brand-red);
+  font-size: 16px;
+  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast);
+}
+
+.spinner-btn-pill:hover:not(:disabled) {
+  background-color: var(--bg-input-hover);
+}
+
+.spinner-btn-pill:disabled {
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.spinner-display-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  width: 40px;
+  text-align: center;
+}
+
+/* Action Trigger button */
+.form-action-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.primary-recommendation-trigger {
+  background-color: var(--brand-red);
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(198, 28, 56, 0.2);
+  transition: all var(--transition-normal);
+}
+
+.primary-recommendation-trigger:hover:not(:disabled) {
+  background-color: var(--brand-red-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(198, 28, 56, 0.3);
+}
+
+.primary-recommendation-trigger:disabled {
+  background-color: var(--text-light);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* --- Red Status Banner --- */
+.perfect-match-banner-fluid {
+  width: 100%;
+  background-color: var(--brand-red);
+  color: #ffffff;
+  padding: 24px 36px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: slideDown var(--transition-normal);
+}
+
+.banner-inner-content {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.banner-circle-badge {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.banner-text-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.banner-title-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.banner-subtitle-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+/* --- Results Panel Stack --- */
+.results-stack-panel {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Restaurant Card component */
+.restaurant-entry-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  transition: all var(--transition-normal);
+  animation: scaleIn var(--transition-normal);
+}
+
+.restaurant-entry-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-primary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.restaurant-left-side {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.rank-index-square {
+  background-color: var(--brand-red);
+  color: #ffffff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.restaurant-main-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.restaurant-name-header {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.restaurant-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.rating-score-bold {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.rating-star-icon {
+  color: #fbbf24;
+  font-size: 13px;
+}
+
+.locality-dot-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.restaurant-right-side {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: right;
+}
+
+.pricing-block-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-value-span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.price-sub-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bookmark-icon-btn {
+  border: none;
+  background: none;
+  color: var(--text-light);
+  font-size: 18px;
+  cursor: pointer;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  padding: 4px;
+}
+
+.bookmark-icon-btn:hover {
+  color: var(--brand-red);
+  transform: scale(1.1);
+}
+
+.bookmark-icon-btn.active {
+  color: var(--brand-red);
+}
+
+/* Category Tag Chips list */
+.card-cuisines-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-left: 48px;
+}
+
+.cuisine-tag-grey-badge {
+  background-color: var(--bg-input);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+/* Pink explanation Callout Box */
+.ai-why-picked-callout {
+  background-color: var(--brand-red-light);
+  border: 1px solid var(--brand-red-border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-left: 48px;
+}
+
+.callout-small-header {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--brand-red);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.callout-body-explanation {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* --- Loader and Skeletons --- */
+.loading-shimmer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 36px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.spinner-compass-ring {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--brand-red-light);
+  border-top-color: var(--brand-red);
+  border-radius: 50%;
+  animation: spinnerRotate 0.8s linear infinite;
+  margin-bottom: 16px;
+}
+
+.skeleton-loading-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 37%, #f1f5f9 63%);
+  background-size: 400% 100%;
+  animation: shimmerFlow 1.4s ease infinite;
+}
+
+.skeleton-header-block {
+  height: 24px;
+  width: 35%;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-meta-block {
+  height: 16px;
+  width: 20%;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-chips-block {
+  height: 22px;
+  width: 50%;
+  border-radius: var(--radius-pill);
+}
+
+.skeleton-callout-block {
+  height: 60px;
+  width: 100%;
+  border-radius: var(--radius-md);
+  opacity: 0.7;
+}
+
+/* --- Error Dialog overlays --- */
+.modal-error-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeOverlay var(--transition-fast);
+}
+
+.error-modal-container {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 440px;
+  padding: 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: scaleIn var(--transition-fast);
+}
+
+.error-triangle-icon {
+  font-size: 42px;
+  color: var(--brand-red);
+}
+
+.error-dialog-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.error-dialog-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.error-dismiss-btn {
+  background-color: var(--brand-red);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.error-dismiss-btn:hover {
+  background-color: var(--brand-red-hover);
+}
+
+/* --- Keyframe Animations --- */
+@keyframes scaleIn {
+  0% { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOverlay {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes spinnerRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmerFlow {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+/* --- Responsive Media break --- */
+@media (max-width: 768px) {
+  .global-header {
+    justify-content: center;
+    padding: 16px;
+  }
+  .hero-title {
+    font-size: 32px;
+  }
+  .form-dashboard-card {
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .form-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .primary-recommendation-trigger {
+    width: 100%;
+    justify-content: center;
+  }
+  .restaurant-entry-card {
+    padding: 16px;
+  }
+  .card-primary-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .restaurant-right-side {
+    width: 100%;
+    justify-content: space-between;
+    text-align: left;
+    border-top: 1px solid var(--border-light);
+    padding-top: 12px;
+  }
+  .card-cuisines-row, .ai-why-picked-callout {
+    margin-left: 0;
+  }
+}
